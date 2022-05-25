@@ -1,0 +1,10 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@1.7.0/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "nextractjs/nextractjs" }],
+  "ignore": ["nextract-app"],
+  "fixed": [["nextract", "@nextract/database-*"]],
+  "commit": false,
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch"
+}

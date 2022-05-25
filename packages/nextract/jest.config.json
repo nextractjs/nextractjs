@@ -1,0 +1,8 @@
+{
+  "preset": "ts-jest",
+  "testMatch": ["**/*.test.ts"],
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "coverageProvider": "v8",
+  "collectCoverageFrom": ["src/**/*.(ts|tsx)"]
+}

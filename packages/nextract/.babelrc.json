@@ -1,0 +1,9 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": 3 }],
+    ["@babel/preset-react", { "runtime": "automatic" }],
+    ["@babel/preset-typescript", { "isTSX": true, "allExtensions": true }]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime"],
+  "comments": false
+}

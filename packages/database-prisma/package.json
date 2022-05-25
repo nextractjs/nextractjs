@@ -1,0 +1,69 @@
+{
+  "name": "@nextract/database-prisma",
+  "version": "3.2.4",
+  "license": "MIT",
+  "description": "Prisma ORM database adapter for Nextract.js",
+  "repository": "https://github.com/nextractjs/nextractjs/tree/main/packages/database-prisma",
+  "author": "Sönke Peters <soenke@soenkep.com>",
+  "keywords": [
+    "nextract",
+    "next.js",
+    "prisma",
+    "sql",
+    "database",
+    "orm",
+    "typescript",
+    "serverless"
+  ],
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "access": "public",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -rf index.js index.d.ts utils.js utils.d.ts ./prisma/migrations ./prisma/dev.db*",
+    "build": "prisma generate && tsc",
+    "studio": "prisma studio",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "init:prisma": "prisma migrate dev --name init --skip-seed",
+    "test": "yarn init:prisma && jest"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "index.js",
+    "index.d.ts",
+    "utils.js",
+    "utils.d.ts"
+  ],
+  "devDependencies": {
+    "nextract": "^3.2.4",
+    "@prisma/client": "^3.14.0",
+    "jest": "^28.0.0",
+    "next": "^12.1.6",
+    "prisma": "^3.14.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "ts-jest": "^28.0.2"
+  },
+  "peerDependencies": {
+    "@prisma/client": "^3.14.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.eslint.json"
+    }
+  },
+  "eslintIgnore": [
+    "./*.d.ts",
+    "**/tests"
+  ],
+  "jest": {
+    "preset": "database-test/jest"
+  }
+}

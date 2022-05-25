@@ -1,0 +1,119 @@
+{
+  "name": "root",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/dev"
+  ],
+  "repository": "https://github.com/nextractjs/nextractjs.git",
+  "scripts": {
+    "build:app": "turbo run build --scope=nextract-app --include-dependencies",
+    "build": "turbo run build --scope=@nextract/* --no-deps",
+    "format": "turbo run format",
+    "format:fix": "turbo run format:fix",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
+    "clean": "turbo run clean",
+    "test": "turbo run test --scope=!nextract-*",
+    "dev": "turbo run dev --parallel --no-deps --no-cache",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.4",
+    "@changesets/cli": "^2.22.0",
+    "@types/node": "^17.0.34",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@prisma/client": "^3.14.0",
+    "@types/semver": "7.3.9",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.2.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.0.0",
+    "git-log-parser": "1.2.0",
+    "husky": "^8.0.1",
+    "next": "^12.1.6",
+    "prettier": "^2.6.2",
+    "pretty-quick": "^3.1.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "semver": "^7.3.7",
+    "stream-to-array": "2.3.0",
+    "ts-node": "10.7.0",
+    "turbo": "^1.2.9",
+    "typescript": "^4.6.4"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "standard-with-typescript",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "node_modules",
+      "next-env.d.ts",
+      ".next",
+      "*.js",
+      "*.d.ts"
+    ],
+    "globals": {
+      "localStorage": "readonly",
+      "location": "readonly",
+      "fetch": "readonly",
+      "navigator": "writable"
+    },
+    "rules": {
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/restrict-plus-operands": [
+        "warn",
+        {
+          "checkCompoundAssignments": false
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "./**/*test.js"
+        ],
+        "env": {
+          "jest/globals": true
+        },
+        "extends": [
+          "plugin:jest/recommended"
+        ],
+        "plugins": [
+          "jest"
+        ]
+      }
+    ]
+  },
+  "eslintIgnore": [
+    "./*.d.ts",
+    "**/tests"
+  ],
+  "packageManager": "yarn@1.22.17"
+}

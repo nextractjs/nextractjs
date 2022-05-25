@@ -1,0 +1,15 @@
+.turbo
+node_modules
+
+# Don't format build outputs (CSS, JS, JSX, etc.)
+.css
+*.js
+*.jsx
+*.d.ts
+
+out.css
+
+/coverage
+
+!src/**/*
+!scripts/**/*

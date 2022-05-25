@@ -1,0 +1,55 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "nextract#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/*",
+        "scripts/*",
+        ".babelrc.json",
+        "tailwind.config.json",
+        "tsconfig.json",
+        "../tailwind/tailwind.config.js"
+      ],
+      "outputs": ["api/**/*", "client/**/*", "css/**/*", "index.js", "index.d.ts", "logger.js", "logger.d.ts"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "@nextract/database-prisma#test": {
+      "inputs": [
+        "prisma/*",
+        "src/**/*",
+        "tests/**/*",
+        "tsconfig.json",
+        "../database-test/cases/**/*",
+        "../database-test/*.ts"
+      ],
+      "dependsOn": ["^build"]
+    },
+    "@nextract/database-prisma#build": {
+      "dependsOn": ["nextract#build"],
+      "inputs": ["src/*", "tsconfig.json"],
+      "outputs": ["index.js", "index.d.ts", "utils.js", "utils.d.ts"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "format": {},
+    "format:fix": {},
+    "dev": {
+      "cache": false
+    },
+    "nextract-app#dev": {
+      "dependsOn": ["nextract#build"],
+      "cache": false
+    }
+  }
+}

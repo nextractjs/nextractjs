@@ -1,0 +1,26 @@
+{
+  "name": "database-test",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Standard tests for all database adapters.",
+  "repository": "https://github.com/nextractjs/nextractjs.git",
+  "author": "Sönke Peters <soenke@soenkep.com>",
+  "files": [
+    "jest"
+  ],
+  "private": true,
+  "devDependencies": {
+    "nextract": "^3.0.0",
+    "@types/jest": "^27.5.1",
+    "dotenv": "^16.0.1",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "lerna": "^4.0.0",
+    "pretty-quick": "^3.1.3",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4",
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
