@@ -1,6 +1,6 @@
 {
   "name": "@nextract/database-prisma",
-  "version": "3.2.4",
+  "version": "0.0.0",
   "license": "MIT",
   "description": "Prisma ORM database adapter for Nextract.js",
   "repository": "https://github.com/nextractjs/nextractjs/tree/main/packages/database-prisma",
