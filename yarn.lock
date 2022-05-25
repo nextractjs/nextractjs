@@ -2507,6 +2507,11 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.1.6.tgz#a350caf42975e7197b24b495b8d764eec7e6a36e"
   integrity sha512-4ZEwiRuZEicXhXqmhw3+de8Z4EpOLQj/gp+D9fFWo6ii6W1kBkNNvvEx4A90ugppu+74pT1lIJnOuz3A9oQeJA==
 
+"@nextract/database-prisma@3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@nextract/database-prisma/-/database-prisma-3.2.4.tgz#11839d900c565ac5f5540fea346a791b837686c8"
+  integrity sha512-Uh1Vb0VNm9PIlrk/2aALRpwz2+eSo7r4qEnmHOmMJTvDrNX3MSMbzvO64mJZJV8we1k9/D6RRpdYkMDH5HBiwg==
+
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz#323d72dd25103d0c4fbdce89dadf574a787b1f9b"

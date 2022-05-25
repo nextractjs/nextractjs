@@ -42,7 +42,7 @@
     "utils.d.ts"
   ],
   "devDependencies": {
-    "nextract": "^3.2.4",
+    "nextract": "0.0.0",
     "@prisma/client": "^3.14.0",
     "jest": "^28.0.0",
     "next": "^12.1.6",
