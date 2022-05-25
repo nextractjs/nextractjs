@@ -17,13 +17,13 @@ Nextract.js is a web analytics library for Next.js. It aims to solve the biggest
 
 That is why Nextract.js is:
 
-- **Privacy friendly**: Analytics without cookies and IP-based tracking.
+- :shield: **Privacy friendly**: Analytics without cookies and IP-based tracking.
 
-- **Free forever**: You pay nothing - 100% open source.
+- :moneybag: **Free forever**: You pay nothing - 100% open source.
 
-- **Easily self hosted**: Integrates with your Next.js app and requires no extra setup.
+- :cloud: **Easily self hosted**: Integrates with your Next.js app and requires no extra setup.
 
-- **Fast & Lightweight**: No external scripts are needed, bundles with your existing code
+- :fast_forward: **Fast & Lightweight**: No external scripts are needed, bundles with your existing code
 
 ## Getting started
 
