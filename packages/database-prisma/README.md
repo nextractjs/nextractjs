@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="NPM version" href="https://www.npmjs.com/package/next">
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/@nextract/database-prisma">
     <img alt="" src="https://img.shields.io/npm/v/@nextract/database-prisma.svg">
   </a>
   <a aria-label="License" href="https://github.com/nextractjs/nextractjs/blob/main/LICENSE">

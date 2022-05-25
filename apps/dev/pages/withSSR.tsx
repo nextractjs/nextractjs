@@ -36,7 +36,6 @@ const WithSSR = ({ date }: { date: string }) => {
 }
 
 export const getServerSideProps = () => {
-  console.log('GET_SERVER_SIDE_PROPS', 'Current date on server is', new Date().toISOString())
   return {
     props: {
       date: new Date().toISOString(),

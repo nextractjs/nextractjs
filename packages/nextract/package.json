@@ -2,7 +2,7 @@
   "name": "nextract",
   "version": "3.2.4",
   "license": "MIT",
-  "description": "Analytics for Next.js",
+  "description": "The easiest analytics tool for Next.js: Privacy-friendly, forever free, easily self hosted.",
   "repository": "https://github.com/nextractjs/nextractjs.git",
   "author": "Sönke Peters <soenke@soenkep.com>",
   "keywords": [

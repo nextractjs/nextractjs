@@ -48,7 +48,7 @@ const DashboardContents = (props: DashboardContentProps) => {
             <h1 className="font-pt-sans text-accent m-0 text-5xl font-bold">Analytics</h1>
             <p className="font-inter text-secondary text-md mt-2 font-semibold">
               powered by{' '}
-              <Link href="https://github.com/nextractjs/nextractjs">
+              <Link href="https://nextractjs.org">
                 <a className="hover:underline" target="_blank">
                   Nextract.js
                 </a>

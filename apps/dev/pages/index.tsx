@@ -14,7 +14,7 @@ const Home = () => {
         <h1 className="text-secondary font-inter m-0 text-center text-5xl font-bold md:text-7xl">
           Welcome to{' '}
           <a
-            href="https://github.com/nextractjs/nextractjs"
+            href="https://nextractjs.org"
             target="_blank"
             className="text-accent font-pt-sans focus:ring-accent rounded-lg decoration-solid hover:underline focus:outline-none focus:ring-2 active:underline"
             rel="noreferrer"
@@ -26,8 +26,8 @@ const Home = () => {
         <p className="my-6 text-center text-xl lg:text-2xl">This is a sample application for development.</p>
 
         <p className="my-6 text-center text-lg lg:text-xl">
-          Try to edit the Nextract packages in <code className="text-md lg:text-lg">/packages/*</code> and the
-          development application at <code className="text-md lg:text-lg">/apps/dev</code>.
+          Try to edit the packages in <code className="text-md lg:text-lg">/packages/*</code> and the development
+          application at <code className="text-md lg:text-lg">/apps/dev</code>.
         </p>
 
         <span className="my-6 flex flex-row flex-wrap justify-center gap-2">
