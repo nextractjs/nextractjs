@@ -1,0 +1,13 @@
+{
+  "*": {
+    "type": "page"
+  },
+  "index": {
+    "title": "Start",
+    "hidden": true,
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": "Docs"
+}

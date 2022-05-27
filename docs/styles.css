@@ -1,0 +1,21 @@
+.nextra-body.full {
+  margin: 0 auto;
+}
+
+.nextra-container {
+  overflow-x: hidden;
+}
+
+mark {
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgb(39, 76, 119, 0.2), rgb(39, 76, 119, 0.2));
+  background-size: auto 20%;
+  background-repeat: no-repeat;
+  background-position-y: 90%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+body {
+  @apply font-inter;
+}

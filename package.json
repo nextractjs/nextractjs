@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "apps/dev"
+    "apps/dev",
+    "docs"
   ],
   "repository": "https://github.com/nextractjs/nextractjs.git",
   "scripts": {
@@ -15,7 +16,7 @@
     "lint:fix": "turbo run lint -- --fix",
     "clean": "turbo run clean",
     "test": "turbo run test --filter=!nextract-app",
-    "dev": "turbo run dev --parallel --no-deps --no-cache",
+    "dev": "turbo run dev --parallel --no-deps --no-cache --filter=!docs",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",
