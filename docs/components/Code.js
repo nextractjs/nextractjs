@@ -9,7 +9,7 @@ const Block = ({ code, language, filename, highlight }) => (
       </div>
     )}
     <div className={styles.CodeBlockWrapper}>
-      <CodeBlock language={language} showLineNumbers={true} text={code} highlight={highlight}/>
+      <CodeBlock language={language} showLineNumbers={true} text={code} highlight={highlight} />
     </div>
   </div>
 )
