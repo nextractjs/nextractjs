@@ -10,7 +10,7 @@
   ],
   "private": true,
   "devDependencies": {
-    "nextract": "0.0.1",
+    "nextract": "0.0.2",
     "@types/jest": "^27.5.1",
     "dotenv": "^16.0.1",
     "husky": "^8.0.1",
