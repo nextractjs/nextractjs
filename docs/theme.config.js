@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import { Footer } from "./components/Footer"
-import Logo from "./components/Logo"
+import { Footer } from './components/Footer'
+import Logo from './components/Logo'
 
 const theme = {
   github: 'https://github.com/nextractjs/nextractjs',
@@ -11,9 +11,9 @@ const theme = {
   search: true,
   unstable_flexsearch: true,
   unstable_staticImage: true,
-  floatTOC: false,
+  floatTOC: true,
   font: false,
-  feedbackLink: 'Question? Give feedback →',
+  feedbackLink: 'Feedback? Let us know →',
   darkMode: false,
   logo: () => {
     return (
@@ -23,7 +23,7 @@ const theme = {
       </>
     )
   },
-  head: ({ title, meta }) => {
+  head: ({ title, meta, ...props }) => {
     const router = useRouter()
     return (
       <>
@@ -39,11 +39,13 @@ const theme = {
         <meta name="twitter:creator" content="@nextractjs" />
         <meta property="og:type" content="website" />
         <meta name="og:title" content={title} />
+        <meta name="description" content={meta.description} />
         <meta name="og:description" content={meta.description} />
         <meta name="og:url" content={`https://nextractjs.org${router.asPath}`} />
         <meta property="og:image" content={`https://nextractjs.org${meta.ogImage ?? '/og-image.png'}`} />
         <meta property="og:locale" content="en_IE" />
         <meta property="og:site_name" content="Nextract.js" />
+        {meta.noindex && <meta name="robots" content="noindex" />}
       </>
     )
   },
@@ -51,7 +53,7 @@ const theme = {
     return 'Edit this page on GitHub'
   },
   footerText: () => {
-    return <Footer/>;
+    return <Footer />
   },
 }
 

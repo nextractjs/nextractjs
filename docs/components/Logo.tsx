@@ -1,5 +1,9 @@
-const Full = ({ height, ...props }): JSX.Element => (
-  <svg height={height} viewBox="0 0 527 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+import { SVGProps } from 'react'
+
+type LogoProps = { height: number } & Omit<SVGProps<SVGElement>, 'height' | 'viewBox' | 'fill' | 'xmlns'>
+
+const Full = ({ height, ...props }: LogoProps): JSX.Element => (
+  <svg height={height} viewBox="0 0 527 71" fill="none" xmlns="http://www.w3.org/2000/svg" {...(props as any)}>
     <path
       opacity="0.99"
       d="M80.4795 55.6471C80.4795 59.8487 77.0136 63.3359 72.6375 63.3359C68.2614 63.3359 64.7954 59.8487 64.7954 55.6471C64.7954 51.4454 68.2614 47.9583 72.6375 47.9583C77.0136 47.9583 80.4795 51.4454 80.4795 55.6471Z"
@@ -57,8 +61,8 @@ const Full = ({ height, ...props }): JSX.Element => (
   </svg>
 )
 
-const Icon = ({ height, ...props }): JSX.Element => (
-  <svg height={height} viewBox="0 0 174 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+const Icon = ({ height, ...props }: LogoProps): JSX.Element => (
+  <svg height={height} viewBox="0 0 174 130" fill="none" xmlns="http://www.w3.org/2000/svg" {...(props as any)}>
     <path
       opacity="0.99"
       d="M167.5 100C167.5 108.982 160.021 116.5 150.5 116.5C140.979 116.5 133.5 108.982 133.5 100C133.5 91.0184 140.979 83.5 150.5 83.5C160.021 83.5 167.5 91.0184 167.5 100Z"

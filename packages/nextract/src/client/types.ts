@@ -3,11 +3,11 @@ import { NextractAPI } from './lib/useApi'
 
 export interface ApiClientOptions {
   /**
-   * The base path the Nextract.js api is located at. This is the folder in the `/pages/api` directory that holds the Nextract.js API route named either `[...nextract].js` or `[...nextract].ts`.
+   * The base path the Nextract.js api is located at. This is the folder in the `/pages` directory that holds the Nextract.js API route named either `[...nextract].js` or `[...nextract].ts`.
    *
-   * e.g. the `apiBasePath` for `/pages/api/nextract/[...nextract].js` is `/nextract`
+   * e.g. the `apiBasePath` for `/pages/api/nextract/[...nextract].js` is `/api/nextract`
    *
-   * @default "/nextract"
+   * @default "/api/nextract"
    */
   apiBasePath?: string
 }

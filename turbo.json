@@ -47,8 +47,33 @@
     "dev": {
       "cache": false
     },
+    "dev:docs": {
+      "cache": false
+    },
+    "docs#build": {
+      "inputs": [
+        "docs/components/**/*",
+        "docs/**/*.js",
+        "docs/**/*.jsx",
+        "docs/**/*.ts",
+        "docs/**/*.d.ts",
+        "docs/**/*.tsx",
+        "docs/**/*.mdx",
+        "docs/**/*.css",
+        "docs/pages/**/*.json",
+        "docs/prisma/schema.prisma",
+        "docs/public/**/*",
+        "docs/.env"
+      ],
+      "outputs": [".next/**/*"],
+      "dependsOn": []
+    },
     "nextract-app#dev": {
       "dependsOn": ["nextract#build"],
+      "cache": false
+    },
+    "docs#dev": {
+      "dependsOn": [],
       "cache": false
     }
   }

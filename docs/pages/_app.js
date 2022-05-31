@@ -1,6 +1,6 @@
 import '../tailwind.css'
 import 'nextra-theme-docs/style.css'
-import '../styles.css'
+import '../base.css'
 
 import { NextractProvider } from 'nextract/client'
 import { SSRProvider } from '@react-aria/ssr'

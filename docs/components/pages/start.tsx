@@ -81,7 +81,7 @@ const Start = (): JSX.Element => {
         <title>Nextract.js</title>
         <meta
           name="og:description"
-          content="The easiest analytics tool for Next.js: Privacy-friendly, forever free, easily self hosted."
+          content="The easiest analytics tool for Next.js: Privacy-friendly, forever free, easily self hosted. Nextract.js seamlessly adds free and privacy friendly web analytics to your Next.js app. Get started now!"
         />
       </Head>
       <div className="mx-auto flex flex-col gap-y-32 px-4 pt-28 pb-24 sm:!pt-36 lg:!px-8">
@@ -116,10 +116,12 @@ const Start = (): JSX.Element => {
           <div className="bg-gradient-radial-from-accent-shadow absolute -z-10 aspect-square h-screen rounded-full" />
         </div>
         {/* Advantages */}
-        <div className="mx-auto flex w-full max-w-7xl grid-cols-2 flex-col gap-x-8 gap-y-16 xl:!grid">
-          <div className="col-span-1 flex w-full flex-col items-center xl:!block">
-            <h3 className="font-inter m-0 p-0 text-3xl font-semibold leading-normal">Analytics without the hassle</h3>
-            <p className="!mt-0 mb-5 leading-normal xl:!mb-10">Zero-config analytics in few lines of code</p>
+        <div className="mx-auto flex w-full max-w-7xl grid-cols-2 flex-col gap-x-8 gap-y-10 xl:!grid">
+          <div className="col-span-1 flex w-full flex-col items-center gap-y-8 xl:!block">
+            <span className="space-y-2 text-center xl:!text-left">
+              <h3 className="font-inter m-0 p-0 text-3xl font-semibold leading-normal">Analytics without the hassle</h3>
+              <p className="leading-normal xl:!mb-10">Zero-config analytics in few lines of code</p>
+            </span>
             <Link href="/docs/compare">
               <a className="text-accent block w-fit rounded-md text-base font-medium no-underline transition duration-200 hover:!scale-[0.99]">
                 Why Nextract.js is better →
@@ -156,7 +158,7 @@ const Start = (): JSX.Element => {
         </div>
         <div className="mx-auto w-full max-w-7xl">
           <h3 className="font-inter m-0 p-0 text-center text-3xl font-semibold leading-normal"></h3>
-          <div className="col-span-1 flex w-full flex-col items-center xl:!block">
+          <div className="col-span-1 flex w-full flex-col items-center gap-y-2 xl:!block">
             <h3 className="font-inter m-0 p-0 text-3xl font-semibold leading-normal">
               Up and running in <mark>a minute</mark>
             </h3>
@@ -165,33 +167,27 @@ const Start = (): JSX.Element => {
             </p>
           </div>
           <div className="mx-auto mt-10 flex w-full flex-col flex-wrap items-stretch justify-center gap-10 lg:!flex-row">
-            <div className="flex flex-col gap-1 lg:w-[calc(50%-1.25rem)]">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm rounded-b-none bg-[#F4F5F7] p-1">
+            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-[calc(50%-1.25rem)]">
+              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
                 <p className="!mt-0 text-sm">/pages/api/nextract/[...nextract].js</p>
               </div>
               <CodeBlock language="javascript" showLineNumbers={true} text={apiRouteCode} />
             </div>
-            <div className="flex flex-col gap-1 lg:w-[calc(50%-1.25rem)]">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm rounded-b-none bg-[#F4F5F7] p-1">
+            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-[calc(50%-1.25rem)]">
+              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
                 <p className="!mt-0 text-sm">/pages/app.jsx</p>
               </div>
               <CodeBlock language="jsx" showLineNumbers={true} text={appCode} highlight="5,7" />
             </div>
-            <div className="flex flex-col gap-1 lg:w-1/2">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm rounded-b-none bg-[#F4F5F7] p-1">
+            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-1/2">
+              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
                 <p className="!mt-0 text-sm">/pages/analytics.jsx (or anywhere else)</p>
               </div>
               <CodeBlock language="jsx" showLineNumbers={true} text={dashboardCode} highlight="5,7" />
             </div>
           </div>
         </div>
-        <div className="bg-accent relative z-10 mx-auto flex h-96 w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-lg">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.svg"
-            alt=""
-            className="drag-none absolute -top-1/4 -z-10 aspect-square h-[200%] w-[200%] cursor-default select-none opacity-[3%]"
-          />
+        <div className="bg-accent bg- bg-logo relative z-10 mx-auto flex h-96 w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-lg">
           <h3 className="font-pt-sans text-primary z-20 cursor-text text-center text-5xl font-extrabold leading-[1.1] tracking-tight">
             Ready to get started?
           </h3>

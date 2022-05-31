@@ -2,8 +2,16 @@
   margin: 0 auto;
 }
 
-.nextra-container {
+.nextra-body {
+  max-width: 100vw !important;
+}
+
+body {
   overflow-x: hidden;
+}
+
+article pre {
+  @apply !rounded-[3px];
 }
 
 mark {

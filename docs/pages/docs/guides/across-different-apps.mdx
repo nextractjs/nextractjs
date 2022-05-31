@@ -1,0 +1,163 @@
+---
+title: Using Nextract.js across different Next.js apps
+description: Nextract.js is built in a modular way and can therefore be easily used across different apps. Find out how in this guide.
+---
+
+import { Tabs, Tab } from 'nextra-theme-docs/tabs'
+import Callout from 'nextra-theme-docs/callout'
+import * as Code from '../../../components/Code.js'
+
+# Using Nextract.js across different Next.js apps
+
+Nextract.js is built in a modular way and can therefore be easily used across different apps.
+
+## Hosting the API in a seperate Next.js app
+
+Nextract.js's API usually runs in your Next.js app that you are collecting analytics data for. However, you can also host the API in a seperate Next.js app.
+
+This can be especially useful if your main app uses API routes extensively itself and you want Nextract.js to work seperately from your main logic.
+
+### 1. Choose your Next.js app
+
+First, think about which Next.js app your API should go into.
+
+- You can create a new app via [Create Next App](https://nextjs.org/docs/api-reference/create-next-app), or
+- choose an existing Next.js app and [add Nextract.js](/docs/getting-started#add-nextractjs-to-your-existing-nextjs-app).
+
+Learn how to set up Nextract.js in the [Getting started guide](/docs/getting-started).
+
+### 2. Reference the API from your main Next.js app
+
+Once your API is running in a seperate Next.js app, come back to your main Next.js app and reference the API route.
+
+Since the API route is no longer deployed in the same app, the API path has changed from a relative path e.g. `/api/nextract/` to a new url e.g. `https://your-domain.com/api/nextract`. Take the API path from your API route and insert it as `apiBasePath` in the `NextractProvider` and `Dashboard` implementation.
+
+#### Update the NextractProvider
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block
+      language="jsx"
+      filename="pages/_app.js"
+      highlight="7"
+      code={`import '../styles/globals.css'\n
+import { NextractProvider } from 'nextract/client'\n
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextractProvider apiBasePath="https://your-domain/api/nextract">
+      <Component {...pageProps} />
+    </NextractProvider>
+  )
+}\n
+export default MyApp`}
+    />
+  </Tab>
+  <Tab>
+    <Code.Block
+      language="tsx"
+      filename="pages/_app.tsx"
+      highlight="8"
+      code={`import '../styles/globals.css'
+import type { AppProps } from 'next/app'\n
+import { NextractProvider } from 'nextract/client'\n
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <NextractProvider apiBasePath="https://your-domain/api/nextract">
+      <Component {...pageProps} />
+    </NextractProvider>
+  )
+}\n
+export default MyApp`}
+    />
+  </Tab>
+</Tabs>
+
+#### Update the Dashboard
+
+Lastly, update the Dashboard implementation to reference the API route here as well. This is done in the same way as the [NextractProvider](#update-the-nextractprovider).
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block
+      language="jsx"
+      filename="pages/analytics.jsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard({
+  apiBasePath: 'https://your-domain/api/nextract'
+})`}
+    />
+  </Tab>
+  <Tab>
+    <Code.Block
+      language="tsx"
+      filename="pages/analytics.tsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard({
+  apiBasePath: 'https://your-domain/api/nextract'
+})`}
+    />
+  </Tab>
+</Tabs>
+
+And you're set! Nextract.js will send requests to your new API route from now on!
+
+<Callout>
+  **Pro tip:** One Nextract.js API can be used in multiple Next.js apps. Simply reference the same API via `apiBasePath`
+  in each `NextractProvider`.
+</Callout>
+
+## Hosting the Dashboard in another Next.js app
+
+Don't want your users to accidentially visit your dashboard route? No problem! Simply host the dashboard in another Next.js app.
+
+<Callout>
+  **Password protection enabled?** You can secure your Nextract.js dashboard & API and only allow access to specific
+  user accounts. Take a look at [Enabling password protection](/docs/guides/enabling-password-protection).
+</Callout>
+
+### 1. Create a new Next.js app
+
+To start, you need to move the API route into another Next.js app. You can create a new Next.js app via the [Create Next App](https://nextjs.org/docs/api-reference/create-next-app).
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tab>
+    <Code.Block language="bash" code="npx create-next-app@latest" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="yarn create next-app" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="pnpm create next-app" />
+  </Tab>
+</Tabs>
+
+### 2. Set up the Nextract.js dashboard
+
+Create a new file in your apps `pages` directory and export the `Dashboard` component. This can also be the `pages/index.tsx` page or any other path.
+
+Lastly, find out which url the Nextract.js API is deployed at and insert it as `apiBasePath` in the `Dashboard` component.
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block
+      language="jsx"
+      filename="pages/analytics.jsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard({
+  apiBasePath: 'https://your-domain/api/nextract'
+})`}
+    />
+  </Tab>
+  <Tab>
+    <Code.Block
+      language="tsx"
+      filename="pages/analytics.tsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard({
+  apiBasePath: 'https://your-domain/api/nextract'
+})`}
+    />
+  </Tab>
+</Tabs>
+
+That's it! Now you can access your Nextract.js dashboard from your new Next.js app.

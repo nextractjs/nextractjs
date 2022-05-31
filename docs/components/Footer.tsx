@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Logo from './Logo'
 
-const FooterLink = ({ href, children }): JSX.Element => {
+const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }): JSX.Element => {
   const classes = 'text-sm text-secondary/60 inter no-underline hover:!text-secondary transition'
-  if (href.startsWith('http') === true) {
+  if (href.startsWith('http')) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} target="_blank" rel="noreferrer">
         {children}
       </a>
     )
@@ -17,7 +17,7 @@ const FooterLink = ({ href, children }): JSX.Element => {
   )
 }
 
-const FooterHeader = ({ children }): JSX.Element => {
+const FooterHeader = ({ children }: { children: React.ReactNode }): JSX.Element => {
   return <h3 className="text-secondary text-sm font-medium">{children}</h3>
 }
 
@@ -25,7 +25,7 @@ const navigation = {
   about: [
     { name: 'Documentation', href: '/docs' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Releases', href: 'https://github.com/vercel/nextractjs/releases' },
+    { name: 'Releases', href: 'https://github.com/nextractjs/nextractjs/releases' },
   ],
   install: [
     {
@@ -34,7 +34,7 @@ const navigation = {
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/vercel/turborepo',
+      href: 'https://github.com/nextractjs/nextractjs',
     },
     {
       name: 'NPM',
@@ -76,7 +76,7 @@ const Footer = (): JSX.Element => {
         Footer
       </h2>
       <div className="mx-auto max-w-7xl py-8">
-        <div className="flex flex-col-reverse space-y-8 xl:!grid xl:!grid-cols-4 xl:!gap-8">
+        <div className="flex flex-col-reverse gap-y-16 xl:!grid xl:!grid-cols-4 xl:!gap-16">
           <div className="">
             <Logo.Full height={32} />
             <p>

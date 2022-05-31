@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -26,9 +22,8 @@
     "**/*.tsx",
     "nextra-theme-docs/**/*.tsx",
     "nextra-theme-docs/**/*.ts",
-    "pages/docs/index.mdx"
+    "pages/docs/index.mdx",
+    "components/Code.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

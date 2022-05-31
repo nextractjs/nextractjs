@@ -9,5 +9,13 @@
       "layout": "raw"
     }
   },
-  "docs": "Docs"
+  "docs": "Docs",
+  "imprint": {
+    "title": "Imprint",
+    "hidden": true
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "hidden": true
+  }
 }
