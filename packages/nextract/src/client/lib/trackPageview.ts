@@ -18,7 +18,7 @@ const trackPageview = async (props: TrackPageviewProps) => {
   })
 
   try {
-    const res = await fetch(`/api${props.apiBasePath}/track/pageview`, {
+    const res = await fetch(`${props.apiBasePath}/track/pageview`, {
       method: 'POST',
       body,
       headers: {
@@ -30,7 +30,7 @@ const trackPageview = async (props: TrackPageviewProps) => {
       if (res.status === 404) {
         logger.error(
           'API_NOT_FOUND',
-          `The API route was not found. Make sure that you have a file named [...nextract].js or [...nextract].ts at /api/${props.apiBasePath} in your pages directory.„`,
+          `The API route was not found. Make sure that you have a file named [...nextract].js or [...nextract].ts at ${props.apiBasePath} in your pages directory.„`,
         )
         return
       }

@@ -1,0 +1,31 @@
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+
+}
+
+model AnalyticsEvent {
+  id          String   @id @unique
+  name        String
+  hostname    String
+  pathname    String
+  userId      String
+  year        DateTime
+  month       DateTime
+  day         DateTime
+  hour        DateTime
+  minute      DateTime
+  timestamp   DateTime
+  isPageview  Boolean
+  referrer    String?
+  utmMedium   String?
+  utmSource   String?
+  utmCampaign String?
+  payload     String
+}

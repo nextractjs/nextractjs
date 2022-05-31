@@ -40,7 +40,7 @@ const NextractProvider = (props: NextractProviderProps): JSX.Element => {
   const router = useRouter()
   let lastTrackedPath: string
 
-  const { apiBasePath = '/nextract', enabled = true, exclude = [], children, trackLocalhost } = props
+  const { apiBasePath = '/api/nextract', enabled = true, exclude = [], children, trackLocalhost } = props
 
   // Only track events from withing useEffect to prevent duplicate events from SSR pages
   useEffect(() => {

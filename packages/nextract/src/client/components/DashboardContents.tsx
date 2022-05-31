@@ -33,14 +33,14 @@ export type DashboardContentProps = Pick<DashboardProps, 'allowedHostnames' | 'a
 
 const DashboardContents = (props: DashboardContentProps) => {
   const [dashboardData, refresh, onTimeframeChange, onSourceTypeChange] = useDashboardData({
-    baseUrl: `/api${props.apiBasePath ?? '/nextract'}`,
+    baseUrl: props.apiBasePath ?? '/api/nextract',
     allowedHostnames: props.allowedHostnames,
   })
 
   return (
     <>
       {!dashboardData.isAuthorized && (
-        <LoginOverlay apiBasePath={`/api${props.apiBasePath ?? '/nextract'}`} onLoggedIn={refresh} />
+        <LoginOverlay apiBasePath={props.apiBasePath ?? '/api/nextract'} onLoggedIn={refresh} />
       )}
       <div className="mx-auto flex w-full max-w-7xl flex-col items-stretch justify-start gap-y-7">
         <span className="xs:flex-row flex flex-col flex-wrap items-start justify-between gap-y-6">

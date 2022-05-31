@@ -1,0 +1,21 @@
+{
+  "*": {
+    "type": "page"
+  },
+  "index": {
+    "title": "Start",
+    "hidden": true,
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": "Docs",
+  "imprint": {
+    "title": "Imprint",
+    "hidden": true
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "hidden": true
+  }
+}

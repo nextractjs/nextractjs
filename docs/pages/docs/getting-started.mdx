@@ -1,0 +1,201 @@
+---
+title: Getting started
+description: Learn how to easily add Nextract.js to your Next.js app and get a full-featured analytics solution in minutes.
+---
+
+import { Tabs, Tab } from 'nextra-theme-docs/tabs'
+import Callout from 'nextra-theme-docs/callout'
+import * as Code from '../../components/Code.js'
+
+# Getting started
+
+Let's go ahead and add Nextract.js to your Next.js app.
+
+If you don't have a Next.js app set up yet, you can create one via [Create Next App](https://nextjs.org/docs/api-reference/create-next-app).
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tab>
+    <Code.Block language="bash" code="npx create-next-app@latest" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="yarn create next-app" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="pnpm create next-app" />
+  </Tab>
+</Tabs>
+
+## Add Nextract.js to your existing Next.js app
+
+Nextract.js has a very straightforward setup. You will be ready in a few minutes.
+
+### Choose your database
+
+Nextract.js is self-hosted and needs a database to store data. To connect to your database, Nextract.js uses [Prisma](https://prisma.io). You can choose from [the supported databases](https://www.prisma.io/docs/reference/database-reference/supported-databases).
+
+Take a look at the Prisma documentation to set up your database in Next.js [here](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgres).
+
+<Callout>
+  **Are you already running a database?** Nextract.js can share your database and easily be added to your database
+  schema.
+</Callout>
+
+### Add the `nextract` database schema to Primsa
+
+Once your Prisma database is set up, you can add the `nextract` schema to your database. This will allow Nextract.js to store pageviews in your database.
+
+<Code.Block
+  language="typescript"
+  filename="prisma/schema.prisma"
+  code={`[...]\n
+model AnalyticsEvent {
+  id          String   @id @unique
+  name        String
+  hostname    String
+  pathname    String
+  userId      String
+  year        DateTime
+  month       DateTime
+  day         DateTime
+  hour        DateTime
+  minute      DateTime
+  timestamp   DateTime
+  isPageview  Boolean
+  referrer    String?
+  utmMedium   String?
+  utmSource   String?
+  utmCampaign String?
+  payload     String
+}\n
+[...]`}
+/>
+
+Make sure that you include the `AnalyticsEvent` model somewhere in your `prisma/schema.prisma` file.
+
+### Install `nextract`
+
+To use Nextract.js in your app, install the `nextract` package via npm, yarn, pnpm or a similar package manager as a dependency of your Next.js app.
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tab>
+    <Code.Block language="bash" code="npm install nextract" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="yarn add nextract" />
+  </Tab>
+  <Tab>
+    <Code.Block language="bash" code="pnpm add nextract" />
+  </Tab>
+</Tabs>
+
+### Create the Nextract.js API route
+
+Nextract.js is self-hosted and will setup an API route in your Next.js app. The API route will be used to handle requests to track a pageview or to retrieve analytics data automatically.
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block language="jsx" filename="pages/api/nextract/[...nextract].js" code={`import Nextract from "nextract";
+import PrismaDatabase from "@nextract/database-prisma";
+
+import { PrismaClient } from '@prisma/client'
+
+const client = new PrismaClient();
+
+export default Nextract({
+  database: PrismaDatabase(client)
+});`} />
+  </Tab>
+  <Tab>
+    <Code.Block language="tsx" filename="pages/api/nextract/[...nextract].ts" code={`import Nextract from "nextract";
+import PrismaDatabase from "@nextract/database-prisma";
+
+import { PrismaClient } from '@prisma/client'
+
+const client = new PrismaClient();
+
+export default Nextract({
+  database: PrismaDatabase(client)
+});`} />
+  </Tab>
+</Tabs>
+
+### Add the `NextractProvider` component
+
+To assure that each pageview is tracked, wrap your Next.js app with the `NextractProvider` component.
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block
+      language="jsx"
+      filename="pages/_app.js"
+      highlight="3,7,9"
+      code={`import '../styles/globals.css'\n
+import { NextractProvider } from 'nextract/client'\n
+function MyApp({ Component, pageProps }) {
+  return (
+    <NextractProvider>
+      <Component {...pageProps} />
+    </NextractProvider>
+  )
+}\n
+export default MyApp`}
+    />
+  </Tab>
+  <Tab>
+    <Code.Block
+      language="tsx"
+      filename="pages/_app.tsx"
+      highlight="4,8,10"
+      code={`import '../styles/globals.css'
+import type { AppProps } from 'next/app'\n
+import { NextractProvider } from 'nextract/client'\n
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <NextractProvider>
+      <Component {...pageProps} />
+    </NextractProvider>
+  )
+}\n
+export default MyApp`}
+    />
+  </Tab>
+</Tabs>
+
+Now, every pageview will be tracked by Nextract.js and automatically stored in your database.
+
+### Set up the dashboard
+
+The Nextract.js dashboard is a component that can be added anywhere in your app. It will display the tracked data and can be used to view different timeframes (e.g. days) and pageview metadata (e.g. utm_source, referrer, etc.).
+
+Create a new file in the `pages` directory and export the `Dashboard` component.
+
+<Tabs items={['Javascript', 'Typescript']}>
+  <Tab>
+    <Code.Block
+      language="jsx"
+      filename="pages/analytics.jsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard()`}
+    />
+  </Tab>
+  <Tab>
+    <Code.Block
+      language="tsx"
+      filename="pages/analytics.tsx"
+      code={`import { Dashboard } from 'nextract/client'\n
+export default Dashboard()`}
+    />
+  </Tab>
+</Tabs>
+
+<Callout>
+  **Pro tip:** You can add the dashboard component anywhere and even in a seperate Next.js app. Find out how in [Hosting
+  the dashboard in a seperate Next.js app](/docs/getting-started).
+</Callout>
+
+## Next steps
+
+To get most of Nextract.js, take a look at the Nextract.js guides.
+
+- [Enable password protection of your analytics data](/docs/guides/enabling-password-protection)
+- [Use Nextract.js across different Next.js apps](/docs/guides/across-different-apps)
