@@ -4,8 +4,7 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "apps/dev",
-    "docs"
+    "apps/dev"
   ],
   "repository": "https://github.com/nextractjs/nextractjs.git",
   "scripts": {
@@ -17,6 +16,7 @@
     "clean": "turbo run clean",
     "test": "turbo run test --filter=!nextract-app",
     "dev": "turbo run dev --parallel --no-deps --no-cache --filter=!docs",
+    "dev:install": "yarn install && yarn --cwd ./docs install",
     "build:docs": "turbo run build --filter=docs",
     "dev:docs": "turbo run dev --no-deps --no-cache --filter=docs",
     "changeset": "changeset",

@@ -1,8 +1,8 @@
 import createEventBaseFromRequest from '../../../src/api/lib/createEventBaseFromRequest'
-import createAnalyticsMocks from './helpers/createAnalyticsMocks'
+import createRequestMock from './helpers/createRequestMock'
 
 test('Request data should be converted to an event base successfully', () => {
-  const { req } = createAnalyticsMocks({
+  const req = createRequestMock({
     body: {
       u: 'https://www.example.com/test-path',
       r: null,
@@ -35,7 +35,7 @@ test('Request data should be converted to an event base successfully', () => {
 })
 
 test('Event base should fail to be created when request is invalid', () => {
-  const { req } = createAnalyticsMocks()
+  const req = createRequestMock()
 
   expect(() => createEventBaseFromRequest(req)).toThrowError('Missing required query param: u.')
 })

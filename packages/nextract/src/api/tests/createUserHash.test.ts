@@ -1,14 +1,14 @@
 import createUserHash from '../lib/createUserHash'
-import createAnalyticsMocks from './helpers/createAnalyticsMocks'
+import createRequestMock from './helpers/createRequestMock'
 
 test('User hash should be different for two IPs', () => {
-  const { req: firstIPReq } = createAnalyticsMocks({
+  const firstIPReq = createRequestMock({
     headers: {
       forwarded: '0.0.0.0',
     },
   })
 
-  const { req: secondIPReq } = createAnalyticsMocks({
+  const secondIPReq = createRequestMock({
     headers: {
       forwarded: '0.0.0.1',
     },
@@ -21,7 +21,7 @@ test('User hash should be different for two IPs', () => {
 })
 
 test('User hash should stay stay same for same IP', () => {
-  const { req } = createAnalyticsMocks({
+  const req = createRequestMock({
     headers: {
       forwarded: '0.0.0.0',
     },
@@ -34,7 +34,7 @@ test('User hash should stay stay same for same IP', () => {
 })
 
 test('User hash should change every day', () => {
-  const { req } = createAnalyticsMocks({
+  const req = createRequestMock({
     headers: {
       forwarded: '0.0.0.0',
     },
