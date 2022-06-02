@@ -1,0 +1,60 @@
+name: Comment files in new release
+
+on:
+  push:
+    paths:
+      - 'packages/nextract/*'
+      - 'packages/database-*'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: Build packages
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Check for changesets
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'package.json, LICENSE, README.md'
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: List package versions
+        run: yarn list --depth=0
+
+      - name: Build packages
+        run: yarn run build
+
+      - name: Pack packages
+        run: yarn pack
+
+      - name: Prepare comment
+        run: |
+
+      - name: Comment on PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
