@@ -2,9 +2,7 @@ name: Comment files in new release
 
 on:
   pull_request:
-    paths:
-      - 'packages/nextract/*'
-      - 'packages/database-*'
+    types: [opened, reopened, edited]
 
 defaults:
   run:
@@ -12,7 +10,7 @@ defaults:
 
 jobs:
   build:
-    name: Build packages
+    name: Write comment
     runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -24,7 +22,7 @@ jobs:
       - name: Check for changesets
         uses: andstor/file-existence-action@v1
         with:
-          files: 'package.json, LICENSE, README.md'
+          files: './.changesets/*-*-*.md'
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -38,18 +36,17 @@ jobs:
       - name: Build packages
         run: yarn run build
 
+      - name: Prefill comment
+        run: echo "# Released packages\n\n" > comment.txt
+
       - name: Prepare comment
-        run: find ./packages/(nextract|database-*) -maxdepth 0 -exec yarn --silent --cwd {} pack --filename {}/pack.tgz \; -exec mkdir -p {}/package  \; -exec tar zxvf {}/pack.tgz -C {}/package \; -exec tree {}/package/package >> comment.txt \;
+        run: find ./packages/(nextract|database-*) -maxdepth 0 -exec yarn --silent --cwd {} pack --filename {}/pack.tgz \; -exec mkdir -p {}/package  \; -exec tar zxvf {}/pack.tgz -C {}/package \; -exec tree {}/package/package > comment.txt \;
+
+      - name: Print comment
+        run: cat comment.txt
 
       - name: Comment on PR
-        if: steps.check_files.outputs.files_exists == 'true'
-        uses: actions/github-script@v6
+        uses: thollander/actions-comment-pull-request@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: $(cat comment.txt)
-            })
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: ${{ cat comment.txt }}
