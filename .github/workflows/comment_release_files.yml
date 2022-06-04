@@ -1,7 +1,7 @@
 name: Comment files in new release
 
 on:
-  push:
+  pull_request:
     paths:
       - 'packages/nextract/*'
       - 'packages/database-*'
@@ -35,19 +35,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: List package versions
-        run: yarn list --depth=0
-
       - name: Build packages
         run: yarn run build
 
-      - name: Pack packages
-        run: yarn pack
-
       - name: Prepare comment
-        run: |
+        run: find ./packages/(nextract|database-*) -maxdepth 0 -exec yarn --silent --cwd {} pack --filename {}/pack.tgz \; -exec mkdir -p {}/package  \; -exec tar zxvf {}/pack.tgz -C {}/package \; -exec tree {}/package/package >> comment.txt \;
 
       - name: Comment on PR
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -56,5 +51,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
+              body: $(cat comment.txt)
             })
