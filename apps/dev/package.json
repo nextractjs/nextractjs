@@ -11,8 +11,8 @@
     "clean": "rm -rf ./prisma/migrations ./prisma/dev.db*"
   },
   "dependencies": {
-    "nextract": "0.0.2",
-    "@nextract/database-prisma": "0.0.2",
+    "nextract": "0.0.3",
+    "@nextract/database-prisma": "0.0.3",
     "@prisma/client": "^3.14.0",
     "autoprefixer": "^10.4.4",
     "next": "^12.1.6",
