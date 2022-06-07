@@ -58,7 +58,7 @@ jobs:
           COMMENT: ${ cat comment.txt }
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: $COMMENT
+          message: ${{ COMMENT }}
 
       - name: Delete comment file
         run: rm comment.txt
