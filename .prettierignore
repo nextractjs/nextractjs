@@ -5,3 +5,6 @@ node_modules
 *.d.ts
 
 !**/src/**
+!/docs/**/*.js
+
+!/scripts/**/*.js

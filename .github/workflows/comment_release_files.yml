@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print
-        run: echo "{{ github }}"
+        run: echo "$GITHUB"
   build:
     name: Write comment
     runs-on: ubuntu-latest
@@ -44,11 +44,8 @@ jobs:
       - name: Build packages
         run: yarn run build
 
-      - name: Prefill comment
-        run: echo "# Released packages\n\n" > comment.txt
-
       - name: Prepare comment
-        run: find ./packages/(nextract|database-*) -maxdepth 0 -exec yarn --silent --cwd {} pack --filename {}/pack.tgz \; -exec mkdir -p {}/package  \; -exec tar zxvf {}/pack.tgz -C {}/package \; -exec tree {}/package/package > comment.txt \;
+        run: node scripts/prepareFileTreeComment.js
 
       - name: Print comment
         run: cat comment.txt
@@ -60,3 +57,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: $({ env.COMMENT })
+
+      - name: Delete comment
+        run: rm comment.txt
