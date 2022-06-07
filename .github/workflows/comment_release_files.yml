@@ -3,7 +3,7 @@ name: Comment files in new release
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 defaults:
   run:
