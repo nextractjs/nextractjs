@@ -1,14 +1,5 @@
-// find ./packages/(nextract|database-*) -maxdepth 0 -exec yarn --silent --cwd {} pack --filename {}/pack.tgz \; -exec mkdir -p {}/package  \; -exec tar zxvf {}/pack.tgz -C {}/package \; -exec tree {}/package/package > comment.txt \;
-
 const fs = require('fs')
 const { execSync } = require('child_process')
-
-const commentFile = `${__dirname}/../comment.txt`
-try {
-  fs.unlinkSync(commentFile)
-} catch (err) {
-  console.warn(`Failed to remove temporary comment file: ${err.message}`)
-}
 
 const dirs = fs.readdirSync('./packages')
 
@@ -41,4 +32,4 @@ for (const dir of dirs) {
   }
 }
 
-fs.writeFileSync(commentFile, comment)
+console.log(comment)

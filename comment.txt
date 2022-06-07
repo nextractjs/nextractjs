@@ -1,0 +1,120 @@
+👋 Hey! Once this PR is merged, the above packages will be released.
+
+They will include the following files:
+
+@nextract/database-prisma
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── index.d.ts
+├── index.js
+├── package.json
+├── prisma
+│   └── schema.prisma
+├── utils.d.ts
+└── utils.js
+
+1 directory, 9 files
+
+
+nextract
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── api
+│   ├── database.d.ts
+│   ├── database.js
+│   ├── global-types.d.js
+│   ├── index.d.ts
+│   ├── index.js
+│   ├── lib
+│   │   ├── createEventBaseFromRequest.d.ts
+│   │   ├── createEventBaseFromRequest.js
+│   │   ├── createPageviewFromRequest.d.ts
+│   │   ├── createPageviewFromRequest.js
+│   │   ├── createUserHash.d.ts
+│   │   ├── createUserHash.js
+│   │   ├── trackEvent.d.ts
+│   │   └── trackEvent.js
+│   ├── routes
+│   │   ├── auth.d.ts
+│   │   ├── auth.js
+│   │   ├── authActions
+│   │   │   ├── login.d.ts
+│   │   │   ├── login.js
+│   │   │   ├── logout.d.ts
+│   │   │   ├── logout.js
+│   │   │   ├── user.d.ts
+│   │   │   └── user.js
+│   │   ├── get.d.ts
+│   │   ├── get.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── track.d.ts
+│   │   └── track.js
+│   ├── tests
+│   │   ├── createEventBaseFromRequest.test.js
+│   │   ├── createPageviewFromRequest.test.js
+│   │   ├── createUserHash.test.js
+│   │   └── helpers
+│   │       └── createRequestMock.js
+│   ├── types.d.ts
+│   └── types.js
+├── client
+│   ├── components
+│   │   ├── ActiveUsersTile.d.ts
+│   │   ├── ActiveUsersTile.js
+│   │   ├── AnalyticsGraph.d.ts
+│   │   ├── AnalyticsGraph.js
+│   │   ├── AnalyticsGraphTile.d.ts
+│   │   ├── AnalyticsGraphTile.js
+│   │   ├── AnalyticsTable.d.ts
+│   │   ├── AnalyticsTable.js
+│   │   ├── AnalyticsTableTile.d.ts
+│   │   ├── AnalyticsTableTile.js
+│   │   ├── AnalyticsTile.d.ts
+│   │   ├── AnalyticsTile.js
+│   │   ├── Dashboard.d.ts
+│   │   ├── Dashboard.js
+│   │   ├── DashboardContents.d.ts
+│   │   ├── DashboardContents.js
+│   │   ├── LoginOverlay.d.ts
+│   │   ├── LoginOverlay.js
+│   │   ├── Modal.d.ts
+│   │   ├── Modal.js
+│   │   ├── NextractProvider.d.ts
+│   │   ├── NextractProvider.js
+│   │   ├── TimeframeSelector.d.ts
+│   │   └── TimeframeSelector.js
+│   ├── index.d.ts
+│   ├── index.js
+│   ├── lib
+│   │   ├── format.d.ts
+│   │   ├── format.js
+│   │   ├── getFilledTimeGraph.d.ts
+│   │   ├── getFilledTimeGraph.js
+│   │   ├── getRelativePointInTime.d.ts
+│   │   ├── getRelativePointInTime.js
+│   │   ├── trackPageview.d.ts
+│   │   ├── trackPageview.js
+│   │   ├── useApi.d.ts
+│   │   ├── useApi.js
+│   │   ├── useDashboardData.d.ts
+│   │   ├── useDashboardData.js
+│   │   ├── withFonts.d.ts
+│   │   └── withFonts.js
+│   ├── tests
+│   │   └── getFilledTimeGraph.test.js
+│   ├── types.d.ts
+│   └── types.js
+├── css
+│   ├── index.d.ts
+│   ├── index.js
+│   └── out.css
+├── index.d.ts
+├── index.js
+├── logger.d.ts
+├── logger.js
+└── package.json
+
+11 directories, 87 files
