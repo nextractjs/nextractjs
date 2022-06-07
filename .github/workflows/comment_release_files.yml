@@ -2,9 +2,8 @@ name: Comment files in new release
 
 on:
   pull_request:
-    types: [opened]
-  issue_comment:
-    types: [created, edited]
+    branches:
+      - master
 
 defaults:
   run:
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print
-        run: echo "$GITHUB"
+        run: echo "$GITHUB_CONTEXT"
   build:
     name: Write comment
     runs-on: ubuntu-latest
