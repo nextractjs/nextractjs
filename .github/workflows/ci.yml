@@ -104,5 +104,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Print packages file tree
-        if: steps.changesets.outputs.hasChangesets == 'true' && steps.changesets.outputs.published == 'false'
         run: node scripts/printFileTree.js
