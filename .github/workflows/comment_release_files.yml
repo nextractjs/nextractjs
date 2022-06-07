@@ -15,7 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          echo $GITHUB
+          echo $GITHUB_EVENT_PATH
+          echo $GITHUB_WORKFLOW
   build:
     name: Write comment
     runs-on: ubuntu-latest
@@ -55,7 +58,7 @@ jobs:
           COMMENT: ${ cat comment.txt }
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: $({ env.COMMENT })
+          message: $COMMENT
 
-      - name: Delete comment
+      - name: Delete comment file
         run: rm comment.txt
