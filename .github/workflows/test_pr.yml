@@ -2,6 +2,7 @@ name: Format & Test
 
 on:
   pull_request:
+    types: [opened, synchronize, edited]
 
 concurrency:
   # stop all test workflows that are already running
