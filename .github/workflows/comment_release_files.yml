@@ -2,6 +2,7 @@ name: Comment files in new release
 
 on:
   pull_request:
+    types: [opened, synchronize, edited]
     branches:
       - main
 
@@ -58,7 +59,7 @@ jobs:
           COMMENT: ${ cat comment.txt }
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: ${{ COMMENT }}
+          message: ${{ env.COMMENT }}
 
       - name: Delete comment file
         run: rm comment.txt
