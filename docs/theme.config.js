@@ -55,6 +55,10 @@ const theme = {
   footerText: () => {
     return <Footer />
   },
+  nextThemes: {
+    defaultTheme: 'light',
+    forcedTheme: 'light',
+  },
 }
 
 export default theme

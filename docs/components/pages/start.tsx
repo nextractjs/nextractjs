@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { CodeBlock } from '@atlaskit/code'
+import * as Code from '../Code'
 import Link from 'next/link'
 import Icon, { IconName } from '../Icon'
 
@@ -167,24 +167,9 @@ const Start = (): JSX.Element => {
             </p>
           </div>
           <div className="mx-auto mt-10 flex w-full flex-col flex-wrap items-stretch justify-center gap-10 lg:!flex-row">
-            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-[calc(50%-1.25rem)]">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
-                <p className="!mt-0 text-sm">/pages/api/nextract/[...nextract].js</p>
-              </div>
-              <CodeBlock language="javascript" showLineNumbers={true} text={apiRouteCode} />
-            </div>
-            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-[calc(50%-1.25rem)]">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
-                <p className="!mt-0 text-sm">/pages/app.jsx</p>
-              </div>
-              <CodeBlock language="jsx" showLineNumbers={true} text={appCode} highlight="5,7" />
-            </div>
-            <div className="flex max-w-full flex-col gap-1 overflow-x-auto lg:w-1/2">
-              <div className="flex w-fit flex-row flex-nowrap items-center justify-between gap-x-1 rounded-sm bg-[#F4F5F7] p-1">
-                <p className="!mt-0 text-sm">/pages/analytics.jsx (or anywhere else)</p>
-              </div>
-              <CodeBlock language="jsx" showLineNumbers={true} text={dashboardCode} highlight="5,7" />
-            </div>
+            <Code.Block language="javascript" filename="/pages/api/nextract/[...nextract].js" code={apiRouteCode} />
+            <Code.Block language="jsx" filename="/pages/app.jsx" highlight="5,7" code={appCode} />
+            <Code.Block language="jsx" filename="/pages/app.jsx" highlight="5,7" code={dashboardCode} />
           </div>
         </div>
         <div className="bg-accent bg- bg-logo relative z-10 mx-auto flex h-96 w-full max-w-7xl flex-col items-center justify-center overflow-hidden rounded-lg">

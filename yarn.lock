@@ -2859,10 +2859,10 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.1.6.tgz#a350caf42975e7197b24b495b8d764eec7e6a36e"
   integrity sha512-4ZEwiRuZEicXhXqmhw3+de8Z4EpOLQj/gp+D9fFWo6ii6W1kBkNNvvEx4A90ugppu+74pT1lIJnOuz3A9oQeJA==
 
-"@nextract/database-prisma@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@nextract/database-prisma/-/database-prisma-0.0.2.tgz#b7edc870a72f57e5df5ce55d9591a82f834d0473"
-  integrity sha512-xWy1TQwU/kcOYF3pRYE9lkG4dyiaZi84NjUsHIB/M5ZkH1POBCZmTgV4Lks6YGSs/WkHuzSDmHDEUhp5/edrUA==
+"@nextract/database-prisma@latest":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@nextract/database-prisma/-/database-prisma-0.0.3.tgz#d3ca830e168d7c07c645dc061d49fefbd878a8ef"
+  integrity sha512-FK4cwvS0SkRWmBOm7ZWTRjklVy138XpRplWKKG7u10KTzdxMmKVuS5Qso058IgSOxtJfYQzm+LFBABo8coDs8A==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
@@ -8908,10 +8908,10 @@ nextra@2.0.0-alpha.54:
     shiki "0.10.1"
     slash "^3.0.0"
 
-nextract@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/nextract/-/nextract-0.0.2.tgz#6b94a31d65f46fc3ffd093de3d755fce6f8bb6c8"
-  integrity sha512-288RUEyckTEGhOxZSRmLFWzaPW3YOjjJUpl+iKnmp75TaITvBbLAO5fa5ho+vWjq1khmimApZHWMvgASfdd2bQ==
+nextract@latest:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/nextract/-/nextract-0.0.3.tgz#e4e2e48d9a436078de8d15203cdc2487f4454511"
+  integrity sha512-WUIhK6dAl5+hw+sG4xiLykixrorQ5NA5uYa6ITWERMYt7M1bm5qc2xB76qGD/aHx042++BdGXhKIgF5xMiWxTA==
   dependencies:
     "@headlessui/react" "^1.6.1"
     iron-session "^6.1.3"

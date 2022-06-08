@@ -27,3 +27,12 @@ mark {
 body {
   @apply font-inter;
 }
+
+.CodeBlockWrapper {
+  --ds--code--bg-color: #f4f6fc;
+  --ds--code--line-number-bg-color: #f4f6fc;
+}
+
+.CodeBlockWrapper span code {
+  font-size: 0.875rem !important;
+}
