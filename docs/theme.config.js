@@ -18,7 +18,11 @@ const theme = {
   logo: () => {
     return (
       <>
-        {useRouter().route === '/' ? <Logo.Icon height={32} /> : <Logo.Full height={32} />}
+        {useRouter().route === '/' ? (
+          <Logo.Icon height={32} className="text-secondary" />
+        ) : (
+          <Logo.Full height={32} className="text-secondary" />
+        )}
         <span className="sr-only">Nextract.js</span>
       </>
     )

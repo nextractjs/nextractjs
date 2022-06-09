@@ -77,8 +77,8 @@ const Footer = (): JSX.Element => {
       </h2>
       <div className="mx-auto max-w-7xl py-8">
         <div className="flex flex-col-reverse gap-y-16 xl:!grid xl:!grid-cols-4 xl:!gap-16">
-          <div className="text-secondary">
-            <Logo.Full height={32} />
+          <div>
+            <Logo.Full height={32} className="text-secondary" />
             <p>
               MIT {new Date().getFullYear()} &copy;{' '}
               <a className="text-secondary" href="https://twitter.com/zunkp" target="_blank" rel="noreferrer">
