@@ -77,6 +77,8 @@ const withAuthApi = async (
     },
   }
 
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+
   return withIronSessionApiRoute(handler, ironSessionOptions)(req, res)
 }
 

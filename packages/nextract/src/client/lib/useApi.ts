@@ -44,7 +44,7 @@ const useApi = (props: ApiProps): NextractAPI => {
 
   const getJSON = async <T>(path: string, query: { [key: string]: any } = {}): Promise<T> => {
     try {
-      const res = await fetch(getApiEndpoint(path, query))
+      const res = await fetch(getApiEndpoint(path, query), { credentials: 'include' })
 
       if (!res.ok) {
         return await Promise.reject(new Error(res.statusText))

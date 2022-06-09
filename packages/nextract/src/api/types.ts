@@ -70,6 +70,12 @@ export interface NextractOptions {
       If this it not provided, the API routes are public.
     */
   authOptions?: AuthOptions
+  /**
+   * The origins (hostnames) the Nextract.js Dashboard will be hosted under.
+   *
+   * If you don't use Nextract.js across multiple domains/hostnames, this options doesn't affect you.
+   */
+  allowedOrigins?: 'all' | string[]
 }
 
 export interface EventPayload {

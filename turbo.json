@@ -50,29 +50,26 @@
     "dev:docs": {
       "cache": false
     },
+    "dev:demo": {
+      "cache": false
+    },
     "docs#build": {
-      "inputs": [
-        "docs/components/**/*",
-        "docs/**/*.js",
-        "docs/**/*.jsx",
-        "docs/**/*.ts",
-        "docs/**/*.d.ts",
-        "docs/**/*.tsx",
-        "docs/**/*.mdx",
-        "docs/**/*.css",
-        "docs/pages/**/*.json",
-        "docs/prisma/schema.prisma",
-        "docs/public/**/*",
-        "docs/.env"
-      ],
       "outputs": [".next/**/*"],
-      "dependsOn": []
+      "dependsOn": ["$DATABASE_URL"]
+    },
+    "demo#build": {
+      "outputs": [".next/**"],
+      "dependsOn": ["$DATABASE_URL"]
     },
     "nextract-app#dev": {
       "dependsOn": ["nextract#build"],
       "cache": false
     },
     "docs#dev": {
+      "dependsOn": [],
+      "cache": false
+    },
+    "demo#dev": {
       "dependsOn": [],
       "cache": false
     }

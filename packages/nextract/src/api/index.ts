@@ -10,7 +10,7 @@ const NextractHandler = async (req: NextApiRequest, res: NextApiResponse, option
     process.env.NEXTRACT_DEBUG = 'true'
   }
 
-  return await new Promise((resolve) => {
+  return await new Promise(() => {
     if (!req.query.nextract) {
       const error = 'Cannot find [...nextract].js in pages/api/stats. Make sure the filename is written correctly.'
 
@@ -36,6 +36,8 @@ const NextractHandler = async (req: NextApiRequest, res: NextApiResponse, option
       path: path.toString(),
     })
 
+    checkOrigin(analyticsRequest, res)
+
     const route = routes.find((route) => route.action === action)
 
     if (route == null) {
@@ -45,6 +47,22 @@ const NextractHandler = async (req: NextApiRequest, res: NextApiResponse, option
 
     route.handler(analyticsRequest, res)
   })
+}
+
+const checkOrigin = (req: NextractRequest, res: NextApiResponse) => {
+  if (!req.options.allowedOrigins) return
+
+  const origin = req.headers.origin
+
+  if (!origin) return
+
+  if (
+    req.options.allowedOrigins === 'all' ||
+    req.options.allowedOrigins.includes(origin) ||
+    process.env.NODE_ENV === 'development'
+  ) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+  }
 }
 
 const Nextract = (options: NextractOptions) => {
