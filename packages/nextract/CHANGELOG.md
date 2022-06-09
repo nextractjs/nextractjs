@@ -1,5 +1,11 @@
 # nextract
 
+## 0.0.4
+
+### Patch Changes
+
+- [`d3d8cab`](https://github.com/nextractjs/nextractjs/commit/d3d8cabe7028f88e66deadb5f84c2edc641c65d6) Thanks [@zunkelty](https://github.com/zunkelty)! - support cross origin requests to API (handle CORS)
+
 ## 0.0.3
 
 ### Patch Changes
