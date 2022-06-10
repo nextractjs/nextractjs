@@ -71,9 +71,11 @@ export interface NextractOptions {
     */
   authOptions?: AuthOptions
   /**
-   * The origins (hostnames) the Nextract.js Dashboard will be hosted under.
+   * The origins (hostnames) Nextract.js will be used under.
    *
-   * If you don't use Nextract.js across multiple domains/hostnames, this options doesn't affect you.
+   * **If you don't use [Nextract.js across different Next.js apps](https://nextractjs.org/docs/guides/across-different-apps) or domains, this options doesn't affect you.**
+   *
+   * If you use Nextract.js across different Next.js apps, enter all hostnames that Nextract.js is used under or choose 'all' to allow access from anywhere.
    */
   allowedOrigins?: 'all' | string[]
 }

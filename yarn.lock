@@ -2891,9 +2891,9 @@
   integrity sha512-4ZEwiRuZEicXhXqmhw3+de8Z4EpOLQj/gp+D9fFWo6ii6W1kBkNNvvEx4A90ugppu+74pT1lIJnOuz3A9oQeJA==
 
 "@nextract/database-prisma@latest":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@nextract/database-prisma/-/database-prisma-0.0.3.tgz#d3ca830e168d7c07c645dc061d49fefbd878a8ef"
-  integrity sha512-FK4cwvS0SkRWmBOm7ZWTRjklVy138XpRplWKKG7u10KTzdxMmKVuS5Qso058IgSOxtJfYQzm+LFBABo8coDs8A==
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@nextract/database-prisma/-/database-prisma-0.0.5.tgz#e5961e876861bd9e359d32e9d630cb2d4f9a713b"
+  integrity sha512-cZYbP9Lh3SBS72BlWbOwbMLqH1XSIrNcAz+FpYTn2xz71S3/LV+2K/agUzznO5oXm+1jJcUXmdsvphZC91Bkuw==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
@@ -9101,9 +9101,9 @@ nextra@2.0.0-alpha.54:
     slash "^3.0.0"
 
 nextract@latest:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/nextract/-/nextract-0.0.3.tgz#e4e2e48d9a436078de8d15203cdc2487f4454511"
-  integrity sha512-WUIhK6dAl5+hw+sG4xiLykixrorQ5NA5uYa6ITWERMYt7M1bm5qc2xB76qGD/aHx042++BdGXhKIgF5xMiWxTA==
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/nextract/-/nextract-0.0.5.tgz#3bea111ea2e95a8151ee421df14c46e12d615202"
+  integrity sha512-IBWe3jFOS8klglPA8+Nr5UWt/d3wabKFsYqMDPuVbS4VRJHuK/rp1+1bbUwtQfoIj0CG1ZWF0x0uw0IiJxId7w==
   dependencies:
     "@headlessui/react" "^1.6.1"
     iron-session "^6.1.3"
