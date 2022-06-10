@@ -3,8 +3,7 @@ const { execSync } = require('child_process')
 
 const dirs = fs.readdirSync('./packages')
 
-let comment =
-  '👋 Hey! Once this PR is merged, the above packages will be released.\n\nThey will include the following files:'
+let comment = '👋 Hey! The packages will include the following files:'
 
 for (const dir of dirs) {
   // Any directory that is not a database or the main nextract directory should be ignored

@@ -91,6 +91,19 @@ jobs:
       - name: Build packages
         run: yarn run build
 
+      - name: Print packages file tree
+        id: count
+        run: |
+          node scripts/printFileTree.js >> fileTree.txt
+          cat fileTree.txt
+          echo ::set-output name=count::$(cat fileTree.txt | grep "\.js$" -c)
+
+      - name: Fail with build error
+        if: steps.count.outputs.count == 0
+        run: |
+          echo "No JS files found in any package: Must be a build error"
+          exit 1
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -102,13 +115,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Print packages file tree
-        run: node scripts/printFileTree.js >> comment.txt
-
-      - name: Print comment
-        run: cat comment.txt
-
-      - name: Echo changesets outputs
-        if: steps.changesets.outputs.published == 'false'
-        run: echo '${{ steps.changesets.outputs }}'
