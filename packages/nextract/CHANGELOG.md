@@ -1,5 +1,11 @@
 # nextract
 
+## 0.0.5
+
+### Patch Changes
+
+- [`bbc1b16`](https://github.com/nextractjs/nextractjs/commit/bbc1b16f4238bd10e5fcb78129f27784b9f82b45) Thanks [@zunkelty](https://github.com/zunkelty)! - add missing files
+
 ## 0.0.4
 
 ### Patch Changes
