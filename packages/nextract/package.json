@@ -31,7 +31,7 @@
   "scripts": {
     "clean": "rm -rf api client css index.d.ts index.js logger.d.ts logger.js",
     "build": "yarn clean && yarn build:types && yarn build:js && ts-node scripts/build-css.ts",
-    "build:js": "babel src --out-dir . --extensions \".ts,.tsx,.js\"",
+    "build:js": "babel src --ignore \"src/**/tests/**\" --out-dir . --extensions \".ts,.tsx,.js\"",
     "build:types": "tsc --emitDeclarationOnly",
     "dev": "yarn build && npm-run-all --parallel dev:types dev:js",
     "dev:types": "tsc --watch --preserveWatchOutput",
