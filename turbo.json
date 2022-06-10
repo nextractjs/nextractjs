@@ -18,7 +18,7 @@
       "outputs": ["api/**/*", "client/**/*", "css/**/*", "index.js", "index.d.ts", "logger.js", "logger.d.ts"]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": []
     },
     "@nextract/database-prisma#test": {
       "inputs": [
@@ -29,21 +29,25 @@
         "../database-test/cases/**/*",
         "../database-test/*.ts"
       ],
-      "dependsOn": ["^build"]
+      "dependsOn": ["nextract#build"]
     },
     "@nextract/database-prisma#build": {
-      "dependsOn": ["nextract#build"],
       "inputs": ["src/*", "tsconfig.json"],
-      "outputs": ["index.js", "index.d.ts", "utils.js", "utils.d.ts"]
+      "outputs": ["index.js", "index.d.ts", "utils.js", "utils.d.ts"],
+      "dependsOn": ["nextract#build"]
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "dependsOn": []
     },
     "clean": {
       "cache": false
     },
-    "format": {},
-    "format:fix": {},
+    "format": {
+      "dependsOn": []
+    },
+    "format:fix": {
+      "dependsOn": []
+    },
     "dev": {
       "cache": false
     },
@@ -52,14 +56,6 @@
     },
     "dev:demo": {
       "cache": false
-    },
-    "docs#build": {
-      "outputs": [".next/**/*"],
-      "dependsOn": ["$DATABASE_URL"]
-    },
-    "demo#build": {
-      "outputs": [".next/**"],
-      "dependsOn": ["$DATABASE_URL"]
     },
     "nextract-app#dev": {
       "dependsOn": ["nextract#build"],
