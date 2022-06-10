@@ -3,7 +3,7 @@ import { Dashboard as NextractDashboard } from 'nextract/client'
 
 const Dashboard = (): JSX.Element => {
   return NextractDashboard({
-    apiBasePath: 'http://localhost:3001/api/nextract',
+    apiBasePath: 'https://nextractjs.org/api/nextract',
     dontLoadFonts: true,
     allowedHostnames: ['nextractjs.org'],
   })()
