@@ -91,9 +91,6 @@ jobs:
       - name: Build packages
         run: yarn run build
 
-      - name: Enable command echoing
-        run: echo '::echo::on'
-
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -107,8 +104,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Print packages file tree
-        run: node scripts/printFileTree.js
+        run: node scripts/printFileTree.js >> comment.txt
+
+      - name: Print comment
+        run: cat comment.txt
 
       - name: Echo changesets outputs
         if: steps.changesets.outputs.published == 'false'
-        run: echo $steps.changesets.outputs
+        run: echo '${{ steps.changesets.outputs }}'
