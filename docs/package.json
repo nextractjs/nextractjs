@@ -9,8 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "postinstall": "patch-package"
+    "format:fix": "prettier --write ."
   },
   "author": "Sönke Peters <soenke@soenkep.com>",
   "license": "MIT",
@@ -25,7 +24,6 @@
     "nextra": "2.0.0-alpha.54",
     "nextra-theme-docs": "2.0.0-alpha.54",
     "nextract": "latest",
-    "patch-package": "^6.4.7",
     "prisma": "^3.14.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

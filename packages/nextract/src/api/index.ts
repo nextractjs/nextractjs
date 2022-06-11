@@ -50,6 +50,8 @@ const NextractHandler = async (req: NextApiRequest, res: NextApiResponse, option
 }
 
 const checkOrigin = (req: NextractRequest, res: NextApiResponse) => {
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+
   if (!req.options.allowedOrigins) return
 
   const origin = req.headers.origin
