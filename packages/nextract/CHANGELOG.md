@@ -1,5 +1,11 @@
 # nextract
 
+## 0.0.6
+
+### Patch Changes
+
+- [`2aaad08`](https://github.com/nextractjs/nextractjs/commit/2aaad08c0bb79e5431fc6c480cdb783ee0f03a26) Thanks [@zunkelty](https://github.com/zunkelty)! - fix CORS error to support using Nextract.js across mutliple Next.js apps
+
 ## 0.0.5
 
 ### Patch Changes
