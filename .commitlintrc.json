@@ -1,7 +1,7 @@
 {
   "extends": ["@commitlint/config-conventional"],
   "rules": {
-    "type-enum": [2, "always", ["ci", "chore", "feat", "fix", "perf", "refactor", "revert", "style", "test"]],
-    "scope-enum": [2, "always", ["core", "core/api", "core/client", "dev", "docs", "demo", "db", "db-prisma", "ci"]]
+    "type-enum": [2, "always", ["chore", "fix", "feat", "refactor", "debug", "ci"]],
+    "scope-enum": [2, "always", ["nextract", "api", "client", "dev", "docs", "demo", "db", "prisma", "ci"]]
   }
 }
