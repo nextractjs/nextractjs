@@ -1,6 +1,6 @@
 {
   "name": "nextract",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "The easiest analytics tool for Next.js: Privacy-friendly, forever free, easily self hosted.",
   "repository": "https://github.com/nextractjs/nextractjs.git",
