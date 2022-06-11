@@ -163,7 +163,7 @@ const Start = (): JSX.Element => {
               Up and running in <mark>a minute</mark>
             </h3>
             <p className="!mt-0 mb-5 leading-normal xl:!mb-10">
-              Paste some code, connect to your database and you&apos;re set.
+              Install Nextract.js, connect to your database and you&apos;re set.
             </p>
           </div>
           <div className="mx-auto mt-10 flex w-full flex-col flex-wrap items-stretch justify-center gap-10 lg:!flex-row">
