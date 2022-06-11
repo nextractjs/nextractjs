@@ -1,27 +1,3 @@
-diff --git a/node_modules/nextract/api/index.js b/node_modules/nextract/api/index.js
-index ce11b56..c7c964b 100644
---- a/node_modules/nextract/api/index.js
-+++ b/node_modules/nextract/api/index.js
-@@ -99,11 +99,18 @@ var NextractHandler = function () {
- var checkOrigin = function checkOrigin(req, res) {
-   if (!req.options.allowedOrigins) return;
-   var origin = req.headers.origin;
--  if (!origin) return;
-+  if (!origin) {
-+    console.log("Couldn't find origin in request headers.", origin)
-+    console.log(req.headers)
-+    return
-+  }
- 
-   if (req.options.allowedOrigins === 'all' || req.options.allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
-     res.setHeader('Access-Control-Allow-Origin', origin);
-+    return
-   }
-+
-+  console.log('Origin not allowed.', { origin, allowed: req.options.allowedOrigins })
- };
- 
- var Nextract = function Nextract(options) {
 diff --git a/node_modules/nextract/api/routes/get.js b/node_modules/nextract/api/routes/get.js
 index cac8ec4..b58d03d 100644
 --- a/node_modules/nextract/api/routes/get.js
