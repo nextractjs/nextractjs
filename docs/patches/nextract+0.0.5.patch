@@ -22,30 +22,16 @@ index ce11b56..c7c964b 100644
  };
  
  var Nextract = function Nextract(options) {
-diff --git a/node_modules/nextract/api/routes/get.js b/node_modules/nextract/api/routes/authActions/get.js
-similarity index 96%
-rename from node_modules/nextract/api/routes/get.js
-rename to node_modules/nextract/api/routes/authActions/get.js
-index cac8ec4..b3fb92d 100644
+diff --git a/node_modules/nextract/api/routes/get.js b/node_modules/nextract/api/routes/get.js
+index cac8ec4..b58d03d 100644
 --- a/node_modules/nextract/api/routes/get.js
-+++ b/node_modules/nextract/api/routes/authActions/get.js
-@@ -15,9 +15,9 @@ var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/h
++++ b/node_modules/nextract/api/routes/get.js
+@@ -25,6 +25,8 @@ var getStats = function () {
+   var _ref = (0, _asyncToGenerator2["default"])(_regenerator["default"].mark(function _callee(req, res) {
+     var _req$query, routename, nextract, query, route, result;
  
- var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
- 
--var _logger = _interopRequireDefault(require("../../logger"));
-+var _logger = _interopRequireDefault(require("nextract/logger"));
- 
--var _auth = require("./auth");
-+var _auth = require("nextract/api/routes/auth");
- 
- var _excluded = ["route", "nextract"];
- 
-@@ -81,6 +81,7 @@ var getStats = function () {
- 
- var getStatsHandler = function () {
-   var _ref4 = (0, _asyncToGenerator2["default"])(_regenerator["default"].mark(function _callee3(req, res) {
-+    req.setHeader('Access-Control-Allow-Credentials', 'true');
-     return _regenerator["default"].wrap(function _callee3$(_context3) {
++    res.setHeader('Access-Control-Allow-Credentials', 'true')
++
+     return _regenerator["default"].wrap(function _callee$(_context) {
        while (1) {
-         switch (_context3.prev = _context3.next) {
+         switch (_context.prev = _context.next) {
