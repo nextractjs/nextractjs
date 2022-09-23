@@ -133,7 +133,7 @@ To assure that each pageview is tracked, wrap your Next.js app with the `Nextrac
 import { NextractProvider } from 'nextract/client'\n
 function MyApp({ Component, pageProps }) {
   return (
-    <NextractProvider>
+    <NextractProvider trackLocalhost={true}>
       <Component {...pageProps} />
     </NextractProvider>
   )
@@ -151,7 +151,7 @@ import type { AppProps } from 'next/app'\n
 import { NextractProvider } from 'nextract/client'\n
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextractProvider>
+    <NextractProvider trackLocalhost={true}>
       <Component {...pageProps} />
     </NextractProvider>
   )
@@ -160,6 +160,8 @@ export default MyApp`}
     />
   </Tab>
 </Tabs>
+
+In this example, we configured the NextractProvider to track pageviews even when running on localhost. If you don't want to track pageviews in development, remove `trackLocalhost={true}`.
 
 Now, every pageview will be tracked by Nextract.js and automatically stored in your database.
 
